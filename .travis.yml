@@ -1,1 +1,5 @@
 language: java
+before_script:
+  - npm i mathoid
+  - cd mathoid
+  - node server.js &
