@@ -17,6 +17,4 @@ before_script:
   - npm i mathoid
   - cd node_modules/mathoid
   - node server.js &
-  
-script:
-    - mvn test
+  - cd ../..
