@@ -15,15 +15,19 @@ import org.apache.http.impl.client.cache.CachingHttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.xml.sax.SAXException;
+import org.yaml.snakeyaml.Yaml;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 /**
  * Created by Moritz on 04.07.2017.
  */
@@ -64,6 +68,13 @@ public class test {
             post.releaseConnection();
         }
         return "";
+    }
+
+    public static Multiset<String> getIdentifiers(String tex) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, TransformerException {
+        Yaml yaml = new Yaml();
+        final InputStream stream = test.class.getClassLoader().getResourceAsStream("config.yaml");
+        final Map o = (Map) yaml.load(stream);
+        return getIdentifiers(tex, (String) o.get("url"));
     }
 
     public static Multiset<String> getIdentifiers(String tex, String url) throws XPathExpressionException, ParserConfigurationException, SAXException, IOException, TransformerException {

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 final public class testTest {
     @Test
     public void myTest() throws Exception {
-        final Multiset<String> identifiers = test.getIdentifiers("a+b+c", "http://localhost:10044/texvcinfo");
+        final Multiset<String> identifiers = test.getIdentifiers("a+b+c");
         assertTrue(identifiers.contains("a"));
         assertTrue(identifiers.contains("c"));
         assertTrue(identifiers.contains("b"));
