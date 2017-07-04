@@ -1,11 +1,9 @@
-language: node_js
-node_js:
-  - "4"
-addons:
-  apt:
-    packages:
-    - librsvg2-dev
+language: java
+dist: trusty
+sudo: required
 before_script:
+  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - sudo apt-get install -y nodejs librsvg2-dev
   - npm i mathoid
   - cd node_modules/mathoid
   - node server.js &
