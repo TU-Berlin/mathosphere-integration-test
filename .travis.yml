@@ -1,4 +1,6 @@
-language: java
+language: node_js
+node_js:
+  - "4"
 before_script:
   - npm i mathoid
   - cd node_modules/mathoid
